@@ -1,5 +1,4 @@
-# Disaster-Management-Blockchain
-Natural disaster management solution using blockchain
+# Natural Disaster Management using Distributed(Blockchain) Medical Records
 
 ## Motivation
 The healthcare system comprises of many different actors (hospital, doctor, patient..) and the process of receiving care usually involves most of them. This leads to fragmentation of the information. In a large scale natural disaster, providing healthcare becomes even more important. Coordination is problematic which leads to consequences in the medical response where immediate care can be the difference between life and death. Accessing vital information about patients is often difficult.
