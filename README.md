@@ -14,9 +14,6 @@ We plan to build and deploy a blockchain for storing the medical records using t
 3) During a disaster, many hospitals are non-functional. The blockchain can tolerate upto a high level of drop-off in the network participation.
 4) After the disaster, there is a high flow of information, which is best suited for a blockchain.
 
-## How is our method different from others methods
-1) Simply having a web portal which notifies the user in case of disaster is not a good management policy. The portal can notify citizens about the Rescue camps/disaster levels/other news but it needs some means of data communication like mobile data or WiFi connection. It is very unlikely that such services are unreachable or not available during a natural calamity. 
-
 ## Challenges
 1) Any information system that collects data from multiple systems should have policies and procedures defined to prevent the identity of medical systems from being disclosed to any outside parties, or the public, without consent. A permissioned blockchain is best suited because medical information such as patient records are confidential.
 2) Initally, we were planning to use the Hyperledger Fabric, but it's not compatible with the Azure Blockchain Workbench. Hence, we will be using the Ethereum based implementation for the purpose of this hackathon. Ethereum uses Proof of Stake consensus and is permissioned blockchain.
