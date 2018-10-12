@@ -16,7 +16,6 @@ We plan to build and deploy a blockchain for storing the medical records using t
 3) During a disaster, many hospitals are non-functional. The blockchain can tolerate upto a high level of drop-off in the network participation.
 4) After the disaster, there is a high flow of information, which is best suited for a blockchain.
 5) With streamlined access to the medical records, hospitals could more efficiently deliver timely medical care to the patients.
-6) Medical researchers can access a large volume of valuable medical records that could greatly accelerate the speed at which they can develop new drugs, treatments.
 
 ## Challenges
 1) Any information system that collects data from multiple systems should have policies and procedures defined to prevent the identity of medical systems from being disclosed to any outside parties, or the public, without consent. A permissioned blockchain is best suited because medical information such as patient records are confidential.
