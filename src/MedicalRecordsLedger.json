@@ -1,0 +1,292 @@
+{
+  "ApplicationName": "MedicalRecordsLedger",
+  "DisplayName": "Medical Records Ledger",
+  "Description": "A blockchain implementation of the Medical records ledger of patients",
+  "ApplicationRoles": [
+    {
+      "Name": "Doctor",
+      "Description": "Doctor can report a diagnosis or a cure for a particular patient."
+    },
+    {
+      "Name": "AuthorisingDoctor",
+      "Description": "Doctor can Authorise reported diagnosis."
+    },
+    {
+      "Name": "Patient",
+      "Description": "Patient"
+    }
+  ],
+  "Workflows": [
+    {
+      "Name": "MedicalRecordsLedger",
+      "DisplayName": "Reps Patient Disease",
+      "Description": "Main Workflow of the disease history of the patient",
+      "Initiators": [ "Doctor" ],
+      "StartState": "DiseaseDiagnosed",
+      "Properties": [
+        {
+          "Name": "State",
+          "DisplayName": "Current Status",
+          "Description": "",
+          "Type": {
+            "Name": "state"
+          }
+        },
+        {
+          "Name": "ReportingDoctor",
+          "DisplayName": "Reporting Doctor",
+          "Description": "",
+          "Type": {
+            "Name": "Doctor"
+          }
+        },
+        {
+          "Name": "TreatingDoctor",
+          "DisplayName": "Treating Doctor",
+          "Description": "",
+          "Type": {
+            "Name": "Doctor"
+          }
+        },
+        {
+          "Name": "AuthorisingDoctor",
+          "DisplayName": "Authorising Doctor",
+          "Description": "",
+          "Type": {
+            "Name": "AuthorisingDoctor"
+          }
+        },
+        {
+          "Name": "Patient",
+          "DisplayName": "Patient",
+          "Description": "",
+          "Type": {
+            "Name": "Patient"
+          }
+        },
+        {
+          "Name": "Disease",
+          "DisplayName": "Disease",
+          "Description": "",
+          "Type": {
+            "Name": "string"
+          }
+        },
+        {
+          "Name": "Hospital",
+          "DisplayName": "Hospital",
+          "Description": "",
+          "Type": {
+            "Name": "string"
+          }
+        },{
+          "Name": "ReportLink",
+          "DisplayName": "Report Link",
+          "Description": "",
+          "Type": {
+            "Name": "string"
+          }
+        },{
+          "Name": "Comments",
+          "DisplayName": "Doctor Comments",
+          "Description": "Doctor Comments",
+          "Type": {
+            "Name": "string"
+          }
+        }
+      ],
+      "Constructor": {
+        "Parameters": [
+          {
+            "Name": "disease",
+            "Description": "Disease diagnosed",
+            "DisplayName": "Disease",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "reportLink",
+            "Description": "Link to the reports",
+            "DisplayName": "Report Link",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "hospital",
+            "Description": "Link to the reports",
+            "DisplayName": "Hospital Name",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "comments",
+            "Description": "Link to the reports",
+            "DisplayName": "Reporting Doctor Comments",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "patient",
+            "Description": "",
+            "DisplayName": "Patient",
+            "Type": {
+              "Name": "Patient"
+            }
+          }
+        ]
+      },
+      "Functions": [
+        {
+          "Name": "ReportDisease",
+          "DisplayName": "Report Disease",
+          "Description": "Report a new disease diagnosed in a patient",
+          "Parameters": [
+            {
+              "Name": "disease",
+              "Description": "...",
+              "DisplayName": "",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        },
+        {
+			"Name": "TreatDisease",
+			"DisplayName": "Start the treatment",
+			"Description": "...",
+			"Parameters": [
+				{
+	              "Name": "comments",
+	              "Description": "...",
+	              "DisplayName": "",
+	              "Type": {
+	                "Name": "string"
+	              }
+	            }
+			]
+        },
+        {
+          "Name": "UserConfirmationDiagnosis",
+          "DisplayName": "User Confirmation of disease diagnosed",
+          "Description": "...",
+          "Parameters": []
+        },
+        {
+          "Name": "UserConfirmationTreatment",
+          "DisplayName": "User Confirmation of disease treated",
+          "Description": "...",
+          "Parameters": []
+        },
+        {
+          "Name": "ApproveTreatment",
+          "DisplayName": "Head Doctor Approval",
+          "Description": "...",
+          "Parameters": []
+        },
+        {
+          "Name": "ApproveDiagnosis",
+          "DisplayName": "Head Doctor Approval",
+          "Description": "...",
+          "Parameters": []
+        }
+      ],
+      "States": [
+        {
+          "Name": "DiseaseDiagnosed",
+          "DisplayName": "Disease Diagnosed",
+          "Description": "...",
+          "PercentComplete": 15,
+          "Value": 0,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Patient"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "UserConfirmationDiagnosis",
+              "NextStates": [ "PendingApprovalDiagnosis" ],
+              "DisplayName": "User confirmed disease diagnosis"
+            }
+          ]
+        },
+        {
+          "Name": "PendingApprovalDiagnosis",
+          "DisplayName": "Pending Approval for a diagnosis",
+          "Description": "...",
+          "PercentComplete": 30,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["AuthorisingDoctor"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "ApproveDiagnosis",
+              "NextStates": [ "ApprovedDiagnosis" ],
+              "DisplayName": "Approved diagnosis"
+            }
+          ]
+        },
+        {
+          "Name": "ApprovedDiagnosis",
+          "DisplayName": "Approved diagnosis",
+          "Description": "...",
+          "PercentComplete": 50,
+          "Value": 2,
+          "Style": "Success",
+          "Transitions": [
+          	{
+              "AllowedRoles": ["Doctor"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "TreatDisease",
+              "NextStates": [ "DiseaseTreated" ],
+              "DisplayName": "Approved diagnosis"
+            }
+          ]
+        },
+		{
+          "Name": "DiseaseTreated",
+          "DisplayName": "Disease treated",
+          "Description": "...",
+          "PercentComplete": 65,
+          "Value": 3,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Patient"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "UserConfirmationTreatment",
+              "NextStates": [ "PendingApprovalTreatment" ],
+              "DisplayName": "User confirmed disease treatment"
+            }
+          ]
+        },
+        {
+          "Name": "PendingApprovalTreatment",
+          "DisplayName": "Pending Approval for a treatment",
+          "Description": "...",
+          "PercentComplete": 80,
+          "Value": 4,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["AuthorisingDoctor"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "ApproveTreatment",
+              "NextStates": [ "ApprovedDiagnosis" ],
+              "DisplayName": "Approved"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
