@@ -21,6 +21,10 @@ We plan to build and deploy a blockchain for storing the medical records using t
 1) Any information system that collects data from multiple systems should have policies and procedures defined to prevent the identity of medical systems from being disclosed to any outside parties, or the public, without consent. A permissioned blockchain is best suited because medical information such as patient records are confidential.
 2) Initally, we were planning to use the Hyperledger Fabric, but it's not compatible with the Azure Blockchain Workbench. Hence, we will be using the Ethereum based implementation for the purpose of this hackathon. Ethereum uses Proof of Stake consensus and is permissioned blockchain.
 
+## Workflow
+![workflow of the blockchain transaction](https://github.com/roopansh/Disaster-Management-Blockchain/blob/master/workflow/workflow.PNG)
+
+
 ## Team - RAM
 #### Indian Institute of Technology Guwahati
 ###### Abhishek Goyal
