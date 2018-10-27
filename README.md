@@ -24,6 +24,9 @@ We plan to build and deploy a blockchain for storing the medical records using t
 ## Workflow
 ![workflow of the blockchain transaction](https://github.com/roopansh/Disaster-Management-Blockchain/blob/master/workflow/workflow.PNG)
 
+## Video
+
+https://www.youtube.com/watch?v=-JZbbMu7heE
 
 ## Team - RAM
 #### Indian Institute of Technology Guwahati
